@@ -1,0 +1,97 @@
+type VehicleView = 
+ record {
+   available: bool;
+   category: VehicleCategory;
+   description: text;
+   features: vec text;
+   id: VehicleId;
+   imageUrl: text;
+   name: text;
+   pricePerDay: nat;
+ };
+type VehicleId = nat;
+type VehicleCategory = 
+ variant {
+   car;
+   motorcycle;
+   suv;
+   truck;
+   van;
+ };
+type UpdateVehicleInput = 
+ record {
+   available: bool;
+   category: VehicleCategory;
+   description: text;
+   features: vec text;
+   id: VehicleId;
+   imageUrl: text;
+   name: text;
+   pricePerDay: nat;
+ };
+type Timestamp = int;
+type CreateVehicleInput = 
+ record {
+   category: VehicleCategory;
+   description: text;
+   features: vec text;
+   imageUrl: text;
+   name: text;
+   pricePerDay: nat;
+ };
+type CreateBookingInput = 
+ record {
+   dropoffDate: Timestamp;
+   pickupDate: Timestamp;
+   vehicleId: VehicleId;
+ };
+type BookingView = 
+ record {
+   createdAt: Timestamp;
+   dropoffDate: Timestamp;
+   id: BookingId;
+   pickupDate: Timestamp;
+   referenceNumber: text;
+   status: BookingStatus;
+   totalAmount: nat;
+   userId: principal;
+   vehicleId: VehicleId;
+ };
+type BookingStatus = 
+ variant {
+   cancelled;
+   confirmed;
+ };
+type BookingResult = 
+ variant {
+   err: text;
+   ok: BookingView;
+ };
+type BookingId = nat;
+service : {
+  addVehicle: (input: CreateVehicleInput) -> (VehicleView);
+  cancelBooking: (id: BookingId) -> (variant {
+                                       err: text;
+                                       ok;
+                                     });
+  createBooking: (input: CreateBookingInput) -> (BookingResult);
+  deleteVehicle: (id: VehicleId) -> (variant {
+                                       err: text;
+                                       ok;
+                                     });
+  getVehicle: (id: VehicleId) -> (opt VehicleView) query;
+  isAdmin: () -> (bool) query;
+  listAllBookings: () -> (vec BookingView) query;
+  listVehicles: () -> (vec VehicleView) query;
+  myBookings: () -> (vec BookingView) query;
+  registerAdmin: () -> (variant {
+                          err: text;
+                          ok;
+                        });
+  setVehicleAvailability: (id: VehicleId, available: bool) ->
+   (variant {
+      err: text;
+      ok;
+    });
+  updateVehicle: (input: UpdateVehicleInput) -> (VehicleView);
+}

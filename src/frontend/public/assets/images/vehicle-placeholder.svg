@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 250" fill="none">
+  <rect width="400" height="250" fill="#f1f3f9"/>
+  <rect x="60" y="120" width="280" height="80" rx="16" fill="#dde2ef"/>
+  <!-- Wheels -->
+  <circle cx="120" cy="200" r="28" fill="#b0b8d0"/>
+  <circle cx="120" cy="200" r="16" fill="#8892af"/>
+  <circle cx="280" cy="200" r="28" fill="#b0b8d0"/>
+  <circle cx="280" cy="200" r="16" fill="#8892af"/>
+  <!-- Body -->
+  <path d="M80 140 C100 100 140 80 200 80 C260 80 300 100 320 140Z" fill="#c8d0e8"/>
+  <!-- Windshield -->
+  <path d="M140 140 C150 105 170 95 200 95 C230 95 250 105 260 140Z" fill="#a8b4d0" opacity="0.7"/>
+  <!-- Window shine -->
+  <path d="M150 130 C158 108 172 100 185 100" stroke="white" stroke-width="3" stroke-linecap="round" opacity="0.6"/>
+  <!-- Headlights -->
+  <ellipse cx="92" cy="152" rx="12" ry="7" fill="#e8ecf5"/>
+  <ellipse cx="308" cy="152" rx="12" ry="7" fill="#e8ecf5"/>
+  <!-- Text -->
+  <text x="200" y="235" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" fill="#8892af">Vehicle Image</text>
+</svg>

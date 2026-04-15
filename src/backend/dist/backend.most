@@ -1,0 +1,60 @@
+// Version: 1.0.0
+type BookingId__429964979 = BookingId__572944220;
+type BookingId__572944220 = Nat;
+type BookingStatus__866642965 = {#cancelled; #confirmed};
+type Booking__1057793126 =
+  {
+    createdAt : Timestamp__972749111;
+    dropoffDate : Timestamp__972749111;
+    id : BookingId__429964979;
+    pickupDate : Timestamp__972749111;
+    referenceNumber : Text;
+    var status : BookingStatus__866642965;
+    totalAmount : Nat;
+    userId : Principal;
+    vehicleId : VehicleId__238678285
+  };
+type Data__159895909<T> = {var count : Nat__490723111; elements : [var ?T]};
+type Internal__667636161<T> =
+  {children : [var ?Node__92254746<T>]; data : Data__159895909<T>};
+type Leaf__520550824<T> = {data : Data__159895909<T>};
+type Nat__490723111 = Nat__920180692;
+type Nat__920180692 = Nat;
+type Node__92254746<T> =
+  {#internal : Internal__667636161<T>; #leaf : Leaf__520550824<T>};
+type Timestamp__301639476 = Int;
+type Timestamp__972749111 = Timestamp__301639476;
+type VehicleCategory__1041773651 = {#car; #motorcycle; #suv; #truck; #van};
+type VehicleId__238678285 = VehicleId__963797663;
+type VehicleId__836043066 = VehicleId__963797663;
+type VehicleId__963797663 = Nat;
+type Vehicle__553412953 =
+  {
+    var available : Bool;
+    var category : VehicleCategory__1041773651;
+    var description : Text;
+    var features : [Text];
+    id : VehicleId__836043066;
+    var imageUrl : Text;
+    var name : Text;
+    var pricePerDay : Nat
+  };
+actor {
+  stable admins :
+    {var root : Node__92254746<Principal>; var size : Nat__490723111};
+  stable bookings :
+    {
+      var blockIndex : Nat__490723111;
+      var blocks : [var [var ?Booking__1057793126]];
+      var elementIndex : Nat__490723111
+    };
+  stable var nextBookingId : Nat;
+  stable var nextVehicleId : Nat;
+  stable var seeded : Bool;
+  stable vehicles :
+    {
+      var blockIndex : Nat__490723111;
+      var blocks : [var [var ?Vehicle__553412953]];
+      var elementIndex : Nat__490723111
+    }
+};

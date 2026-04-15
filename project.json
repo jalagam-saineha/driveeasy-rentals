@@ -1,0 +1,21 @@
+{
+  "overview": "A smart vehicle rental and booking system where users can browse available vehicles, book by dates, manage reservations, and admins can manage the fleet and bookings.",
+  "features": [
+    "Vehicle catalog with search and filters by type, price, and category",
+    "Date-based availability search for pickup and dropoff",
+    "Booking flow with auto-confirmation and unique reference number",
+    "User dashboard showing upcoming and past rentals with cancellation option",
+    "Admin dashboard to manage fleet, view all bookings, set pricing and availability",
+    "Internet Identity login for secure user authentication",
+    "Fully responsive design for mobile, tablet, and desktop"
+  ],
+  "category": "business",
+  "tags": [
+    "vehicle-rental",
+    "booking-system",
+    "car-rental",
+    "fleet-management",
+    "reservations"
+  ],
+  "last_updated": "2026-04-15T17:28:36.312Z"
+}
